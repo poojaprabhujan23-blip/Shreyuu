@@ -1,0 +1,745 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #050505;
+    color: white;
+    text-align: center;
+}
+
+.front-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #17245c 0%, #0b1030 40%, #020207 100%);
+    transition: opacity 0.8s ease;
+}
+
+.front-glow {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    background: #3049c9;
+    opacity: 0.15;
+    filter: blur(100px);
+    animation: frontGlow 4s infinite alternate;
+}
+
+@keyframes frontGlow {
+    from {
+        transform: scale(0.8);
+    }
+    to {
+        transform: scale(1.2);
+    }
+}
+
+.top-secret {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #9ca9df;
+    font-size: 12px;
+    letter-spacing: 5px;
+    animation: blink 2s infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+}
+
+.front-content {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 650px;
+}
+
+.classified-text {
+    color: #8995c2;
+    font-size: 11px;
+    letter-spacing: 4px;
+}
+
+.front-content h1 {
+    font-size: 55px;
+    line-height: 1.1;
+    margin: 20px 0;
+    letter-spacing: 2px;
+}
+
+.front-content h1 span {
+    color: #b9c5ff;
+    text-shadow: 0 0 25px #6178ff;
+}
+
+.front-message {
+    color: #b5bddb;
+    font-size: 17px;
+}
+
+.secret-envelope {
+    position: relative;
+    width: 230px;
+    height: 155px;
+    margin: 40px auto;
+    background: #111936;
+    border: 1px solid #6677c1;
+    box-shadow: 0 0 25px rgba(90, 110, 255, 0.3), 0 20px 50px rgba(0, 0, 0, 0.6);
+    animation: envelopeFloat 3s infinite ease-in-out;
+}
+
+@keyframes envelopeFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 114px solid transparent;
+    border-right: 114px solid transparent;
+    border-top: 75px solid #273565;
+}
+
+.envelope-body {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -10%);
+    z-index: 5;
+}
+
+.envelope-seal {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    border-radius: 50%;
+    background: #596bc8;
+    color: white;
+    font-size: 22px;
+    box-shadow: 0 0 20px rgba(100, 120, 255, 0.7);
+}
+
+.envelope-body p {
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: #c6cef0;
+}
+
+.open-hint {
+    color: #929bbc;
+    font-size: 14px;
+}
+
+.access-code {
+    color: #555d79;
+    font-size: 9px;
+    letter-spacing: 3px;
+    margin-top: 30px;
+}
+
+.enter-button {
+    margin-top: 20px;
+    padding: 16px 35px;
+    border: 1px solid #8190df;
+    background: rgba(73, 91, 180, 0.25);
+    color: white;
+    border-radius: 30px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.enter-button:hover {
+    background: #5a6dcc;
+    transform: scale(1.07);
+    box-shadow: 0 0 30px rgba(100, 120, 255, 0.7);
+}
+
+.birthday-page {
+    min-height: 100vh;
+    background: #050505;
+}
+
+.hidden {
+    display: none;
+}
+
+header {
+    padding: 60px 20px;
+    border-bottom: 1px solid #00ffcc;
+}
+
+.classified {
+    color: #ff3333;
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+
+header h1 {
+    color: #00ffcc;
+    font-size: 45px;
+    letter-spacing: 5px;
+    transition: 0.4s;
+}
+
+header h1:hover {
+    letter-spacing: 10px;
+    text-shadow: 0 0 20px #00ffcc;
+}
+
+.typing {
+    color: #aaa;
+    font-size: 18px;
+}
+
+main {
+    padding: 40px 20px;
+}
+
+.secret-box {
+    max-width: 500px;
+    margin: auto;
+    padding: 40px;
+    background: #111;
+    border: 2px solid #333;
+    border-radius: 10px;
+    transition: 0.4s;
+}
+
+.secret-box:hover {
+    transform: translateY(-10px);
+    border-color: #00ffcc;
+    box-shadow: 0 0 30px #00ffcc;
+}
+
+.secret-box h2 {
+    color: #00ffcc;
+}
+
+button {
+    background: #111;
+    color: #00ffcc;
+    border: 2px solid #00ffcc;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 20px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #00ffcc;
+    color: #111;
+    transform: scale(1.1);
+    box-shadow: 0 0 25px #00ffcc;
+}
+
+.open-question {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.88);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.question-box {
+    width: 90%;
+    max-width: 430px;
+    padding: 40px 25px;
+    background: linear-gradient(145deg, #111936, #070b1b);
+    border: 1px solid #7184df;
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(90, 110, 255, 0.4);
+    animation: questionPop 0.4s ease;
+}
+
+@keyframes questionPop {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.question-lock {
+    font-size: 50px;
+}
+
+.question-classified {
+    color: #7885b4;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.question-box h2 {
+    color: #b8c5ff;
+    letter-spacing: 5px;
+}
+
+.question-box p {
+    color: #b9c1dd;
+    line-height: 1.6;
+}
+
+.question-box h3 {
+    color: white;
+    font-size: 20px;
+    margin: 25px 0;
+}
+
+.question-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.yes-button {
+    background: #536bd1;
+    color: white;
+    border-color: #8797ec;
+}
+
+.yes-button:hover {
+    background: #7188ee;
+    color: white;
+    box-shadow: 0 0 30px rgba(100, 120, 255, 0.7);
+}
+
+.no-button {
+    background: #252a42;
+    color: #aaa;
+    border-color: #444b68;
+}
+
+.no-button:hover {
+    background: #343b5b;
+    color: white;
+}
+
+#noMessage {
+    min-height: 25px;
+    color: #9daaf0;
+    font-size: 14px;
+}
+
+#surprise {
+    margin-top: 60px;
+}
+
+#surprise > h1 {
+    color: #ff3399;
+    font-size: 45px;
+    animation: glow 2s infinite alternate;
+}
+
+#surprise > h2 {
+    color: #00ffcc;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #ff3399;
+    }
+    to {
+        text-shadow: 0 0 30px #ff3399;
+    }
+}
+
+.birthday-text {
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.7;
+    color: #ccc;
+}
+
+.krishna-birthday {
+    max-width: 700px;
+    margin: 80px auto;
+    padding: 40px 20px;
+    background: #071a3d;
+    border: 2px solid #00bfff;
+    border-radius: 20px;
+    box-shadow: 0 0 30px #0066ff;
+    transition: 0.4s;
+}
+
+.krishna-birthday:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 45px #0066ff;
+}
+
+.peacock {
+    font-size: 70px;
+    animation: feather 2s infinite alternate;
+}
+
+@keyframes feather {
+    from {
+        transform: rotate(-5deg);
+    }
+    to {
+        transform: rotate(5deg);
+    }
+}
+
+.krishna-birthday h2 {
+    color: #ffd700;
+    text-shadow: 0 0 10px #ffd700;
+}
+
+.krishna-text {
+    color: #bdefff;
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 550px;
+    margin: auto;
+}
+
+.flute {
+    font-size: 45px;
+    margin: 20px;
+    transition: 0.3s;
+}
+
+.flute:hover {
+    transform: rotate(-10deg) scale(1.2);
+    filter: drop-shadow(0 0 10px #ffd700);
+}
+
+.birthday-cake {
+    width: 220px;
+    margin: 100px auto 40px;
+    position: relative;
+}
+
+.cake-bottom {
+    height: 70px;
+    background: #6b2d5c;
+    border-radius: 0 0 20px 20px;
+    border: 3px solid #ffd700;
+}
+
+.cake-top {
+    height: 60px;
+    background: #ff69b4;
+    border-radius: 20px 20px 5px 5px;
+    font-size: 35px;
+    padding-top: 10px;
+    border: 3px solid #ffd700;
+}
+
+.cake-cream {
+    height: 15px;
+    background: white;
+    border-radius: 10px;
+}
+
+.candle {
+    position: absolute;
+    left: 50%;
+    top: -85px;
+    transform: translateX(-50%);
+}
+
+.wick {
+    width: 5px;
+    height: 20px;
+    background: #222;
+    margin: auto;
+}
+
+.flame {
+    font-size: 35px;
+    animation: flame 0.5s infinite alternate;
+}
+
+@keyframes flame {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 10px orange);
+    }
+}
+
+.blow-text {
+    color: #ffd700;
+    font-size: 18px;
+}
+
+#blowButton {
+    background: #0066ff;
+    color: white;
+    border: 2px solid #ffd700;
+}
+
+#blowButton:hover {
+    background: #ffd700;
+    color: #071a3d;
+    box-shadow: 0 0 30px #ffd700;
+}
+
+#krishnaSurprise {
+    display: none;
+    margin-top: 60px;
+    padding: 30px;
+    animation: surpriseAppear 2s ease;
+}
+
+@keyframes surpriseAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.surprise-feather {
+    font-size: 100px;
+    animation: featherAppear 2s ease, featherFloat 3s infinite alternate;
+}
+
+@keyframes featherAppear {
+    0% {
+        transform: scale(0) rotate(-30deg);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes featherFloat {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-15px);
+    }
+}
+
+.music-notes {
+    font-size: 30px;
+    color: #ffd700;
+    animation: notesFloat 3s infinite alternate;
+}
+
+@keyframes notesFloat {
+    0% {
+        transform: translateY(20px);
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateY(-20px);
+        opacity: 1;
+    }
+}
+
+.surprise-flute {
+    font-size: 70px;
+    margin: 20px;
+    animation: fluteAppear 2s ease, fluteGlow 1.5s infinite alternate;
+}
+
+@keyframes fluteAppear {
+    0% {
+        transform: translateX(-200px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fluteGlow {
+    from {
+        filter: drop-shadow(0 0 5px #ffd700);
+    }
+    to {
+        filter: drop-shadow(0 0 25px #ffd700);
+    }
+}
+
+#krishnaSurprise h2 {
+    color: #ffd700;
+    text-shadow: 0 0 15px #ffd700;
+}
+
+#krishnaSurprise p {
+    max-width: 600px;
+    margin: auto;
+    color: #bdefff;
+    font-size: 19px;
+    line-height: 1.8;
+}
+
+#krishnaSurprise h1 {
+    color: #ff69b4;
+    font-size: 45px;
+    margin-top: 40px;
+    animation: birthdayGlow 1s infinite alternate;
+}
+
+@keyframes birthdayGlow {
+    from {
+        text-shadow: 0 0 5px #ff69b4;
+    }
+    to {
+        text-shadow: 0 0 30px #ff69b4, 0 0 50px #ffd700;
+    }
+}
+
+.memories {
+    margin-top: 80px;
+}
+
+.memories > h2 {
+    color: #00ffcc;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.photo {
+    background: #111;
+    padding: 15px;
+    border-radius: 10px;
+    transition: 0.4s;
+}
+
+.photo img {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 8px;
+}
+
+.photo:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 0 25px #00ffcc;
+}
+
+.photo p {
+    color: #00ffcc;
+}
+
+.message {
+    max-width: 700px;
+    margin: 80px auto;
+    padding: 35px;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 10px;
+    line-height: 1.8;
+    transition: 0.4s;
+}
+
+.message:hover {
+    border-color: #ff3399;
+    box-shadow: 0 0 25px #ff3399;
+}
+
+.final {
+    margin: 80px 0;
+}
+
+#finalMessage {
+    color: #ffd700;
+    font-size: 40px;
+    animation: glow 1s infinite alternate;
+}
+
+footer {
+    margin-top: 80px;
+    padding: 20px;
+    background: #000;
+    color: #555;
+}
+
+@media (max-width: 600px) {
+    .front-content h1 {
+        font-size: 38px;
+    }
+    header h1 {
+        font-size: 30px;
+    }
+    .secret-box {
+        width: 90%;
+        padding: 25px;
+    }
+    #surprise > h1 {
+        font-size: 32px;
+    }
+    .gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+    .photo img {
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+        object-fit: contain;
+    }
+    button {
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+    .krishna-birthday {
+        width: 95%;
+        padding: 30px 15px;
+    }
+    .front-page {
+        min-height: 100svh;
+    }
+}
